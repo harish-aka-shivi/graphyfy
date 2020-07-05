@@ -1,5 +1,5 @@
 ## Description
-This web extension gives users the ability to render the graph for chats
+This web extension gives users the ability to render the graph for chats. It uses [this](https://github.com/abhijithvijayan/web-extension-starter) as the boilerplate
 
 ## Libraries use
 - Chart js and moment
