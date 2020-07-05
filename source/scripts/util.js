@@ -1,5 +1,4 @@
 import moment from 'moment';
-import {data} from 'autoprefixer';
 
 export const parseNumber = (numberStr) => {
   const momentDate = moment(numberStr);
@@ -31,6 +30,7 @@ export const getDataListAndTitleFromTable = (table, index) => {
   const rows = tableBody.querySelectorAll('tr');
   // console.log(rows);
   const columns = [];
+  // eslint-disable-next-line no-plusplus
   for (let i = 1; i < rows.length; i++) {
     const tds = rows[i].querySelectorAll('td');
     // console.log(tds[index]);

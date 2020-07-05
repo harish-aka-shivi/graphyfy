@@ -34,6 +34,7 @@ function VisualizeComponent(tableElement) {
   // this.xAxisInput = null;
   // this.yAxisInput = null;
   const tableRect = tableElement.getClientRects();
+  // eslint-disable-next-line prefer-destructuring
   this.tableRect = tableRect[0];
   this.tableWidth = tableRect[0].width;
   this.tableHeight = (this.tableWidth * 11) / 16;
@@ -48,7 +49,6 @@ VisualizeComponent.prototype.intializeButton = function intializeButton() {
   button.innerHTML = 'Visualize';
   button.classList.add('visualizeButton');
   button.style.position = 'absolute';
-  console.log(this.tableRect.top);
   button.style.top = `${this.tableRect.top}px`;
   button.style.left = `${this.tableRect.right + 30}px`;
   button.style.zIndex = 1000;
@@ -71,11 +71,7 @@ VisualizeComponent.prototype.initializeCanvas = function initializeCanvas() {
   const canvas = document.createElement('canvas');
   canvas.style.display = 'none';
   canvas.width = this.tableWidth;
-  // const rects = this.tableElement.getClientRects();
-  // const {width} = rects[0];
-  // canvas.width = width;
   canvas.height = this.tableHeight;
-  // canvas.height = 400;
   if (this.tableElement.parentNode) {
     this.tableElement.parentNode.insertBefore(
       canvas,
@@ -87,10 +83,7 @@ VisualizeComponent.prototype.initializeCanvas = function initializeCanvas() {
 
 VisualizeComponent.prototype.listenToMutation = function listenToMutation() {
   // listen to mutations of table position
-  const mutationObserver = new MutationObserver((mutationRecort) => {
-    console.log('mutation observer', this.getTableHeight());
-    // this.button.style.top =
-  });
+  const mutationObserver = new MutationObserver((mutationRecort) => {});
   mutationObserver.observe(this.tableElement, {
     attributes: true,
   });
@@ -151,7 +144,6 @@ VisualizeComponent.prototype.initModal = function initModal() {
       return false;
     }
     return true;
-    // if y-axis is not a number or float
   };
 
   const showModal = () => {
@@ -177,8 +169,6 @@ VisualizeComponent.prototype.initModal = function initModal() {
     event.preventDefault();
     const valueY = yAxisInput.value;
     const valueX = xAxisInput.value;
-    console.log(valueX, valueY);
-    console.log(validateForm(valueX, valueY));
     if (validateForm(valueX, valueY)) {
       hideError();
       this.yAxisValue = valueY;
@@ -219,13 +209,6 @@ VisualizeComponent.prototype.renderGraph = function renderGraph() {
     this.xAxisValue
   );
 
-  console.log(getDataListAndTitleFromTable(this.tableElement, this.xAxisValue));
-  console.log(getDataListAndTitleFromTable(this.tableElement, this.yAxisValue));
-
-  console.log(xAxisLabels, yAxisPoints, this.xAxisValue, this.yAxisValue);
-
-  // const ints = yAxisPoints.map((item) => parseInt(item));
-  // console.log(ints);
   const myLineChart = new Chart(this.canvasContext, {
     type: 'line',
     data: {
