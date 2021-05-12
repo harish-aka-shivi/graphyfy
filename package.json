@@ -26,7 +26,7 @@
   "dependencies": {
     "@babel/runtime": "^7.10.2",
     "advanced-css-reset": "^1.1.1",
-    "chart.js": "^2.9.3",
+    "chart.js": "^2.9.4",
     "emoji-log": "^1.0.2",
     "moment": "^2.27.0",
     "webext-base-css": "^1.1.0",
