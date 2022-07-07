@@ -28,7 +28,7 @@
     "advanced-css-reset": "^1.1.1",
     "chart.js": "^2.9.3",
     "emoji-log": "^1.0.2",
-    "moment": "^2.27.0",
+    "moment": "^2.29.4",
     "webext-base-css": "^1.1.0",
     "webextension-polyfill": "^0.6.0"
   },
